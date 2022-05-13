@@ -1,0 +1,81 @@
+{% extends 'base2.html' %}
+{% block body %}
+<header>
+    <div class="container bg pb-5">
+        <div class="row justify-content-center ">
+            <div class="col-md-10 mx-auto my-2" style="color: #fff;">
+                <h5>CASHBOOK</h5>
+                <div class="row">
+                <div class="col-4">
+                <form method="get" action="/search" class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search Date" aria-label="Search" name="query5" id="query5">
+                    <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+                    {% csrf_token %}
+                </form></div>
+                <div class="col-ml-4">
+                <a href="{% url 'cashbook_show' %}" class = " btn btn-outline-success ">Show All</a>
+                </div>
+                </div>
+                {% if page_obj|length < 1 %}
+                <p>No search found</p>
+                {% endif %}
+                <table class="table table-bordered my-3" style="color:#fff;">
+                    <thead class="border-bottom font-weight-bold">
+                        <tr>
+                            <td>DATE </td>
+                            <td>PARTICULAR</td>
+                            <td>AMOUNT</td>
+                            <td>TRANSECTION TPYE</td>
+                            <td>
+                                <a href="{% url 'cashbook' %}" class="btn btn-outline-success">
+                                    <i class="fas fa-plus"></i> Add New
+                                </a>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for cash in page_obj %}
+                        <tr>
+                            <td>{{cash.cashbook_date}}</td>
+                            <td>{{cash.particular}}</td>
+                            <td>{{cash.cashbook_amount}}</td>
+                            <td>{{cash.transection_type}}</td>
+                            <td>
+                                <a href="{% url 'cashbook_edit' cash.id %}" class="btn text-secondary px-0">
+                                    <i class="far fa-edit fa-lg"></i>
+                                </a>
+                                <form action="{% url 'cashbook_delete' cash.id %}" method="post" class="d-inline">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn">
+                                        <i class="fas fa-user-times fa-lg text-danger float-right"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+<div class="">
+                    Showing page {{page_obj.number}} of {{page_obj.paginator.num_pages}}
+                    </div>
+                <nav aria-label="Page navigation example">
+            <ul class="pagination align-right float-right mr-auto">
+            {% if page_obj.has_previous %}
+            <li {% if page_obj.number == 1%} class="page-item active" {% endif %}>
+            <a class="page-link" href="?page=1" tabindex="-1">&laquo; first</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+            {% endif%}
+            {% if page_obj.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a></li>
+            {% endif %}
+    </li>
+  </ul>
+</nav>
+<br>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock body %}

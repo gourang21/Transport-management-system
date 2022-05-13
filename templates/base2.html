@@ -1,0 +1,201 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="{% static 'css-reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'stylemain1.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'forms.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css-dashboard.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c482f50f36.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>TMS Dashboard</title>
+</head>
+<style>
+    .footer {
+        text-align: center;
+        background-color: rgb(100, 100, 100);
+        color: black;
+        height: 30px;
+        width: 100%;
+        bottom: 0px;
+        left: 0px;
+        position: fixed;
+        padding-top: 2px;
+    }
+</style>
+<body>
+    <nav class="navbar navbar-dark navbar-custom">
+        <a class="navbar-brand" href="#"></a>
+        <form class="form-inline">
+            {% csrf_token %}
+            <!--user welcome details-->
+            {% if user.is_authenticated%}
+            <ul class="navbar-nav ml-auto ">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Welcome {{request.user}}
+                    </a>
+                    <div class="dropdown-menu position-absolute" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="/handlelogout">Logout</a>
+                    </div>
+                </li>
+            </ul>
+            {% else %}
+            <label class="lab" style="color: white; margin-bottom: 8px; padding-top: 5px;">PLEASE LOGIN</label>
+            {% endif %}
+        </form>
+    </nav>
+    <!--Message alerts-->
+    <div class="messages" id="alert-message">
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }} mb-0 alert-dismissible fade show " role="alert">
+            <strong>Message :</strong>{{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {% endfor %}
+    </div>
+    <section id="sidemenu">
+        <div class="sidemenu_head">
+            <a id="GFG" href="#">Transport Management</a></div>
+        <div class="nav_side">
+            <a href="/dashboard"><i class="fa fas fa-home"></i>Home</a>
+            <div class="navbutton">
+                <a href="#" onclick="show_hide()"><i class="fa fab fa-wpforms"></i>Forms<i class="fas fa-caret-down"
+                        id="caret"></i></a>
+                <div class="drop" style="display: none;" id="drop-content">
+                    <div class="navbutton"><a href="/cashbook">Cashbook</a></div>
+                    <div class="navbutton"><a href="/bilty">Bilty</a></div>
+                    <div class="navbutton"><a href="/documents">Documents</a></div>
+                    <div class="navbutton"><a href="/loans_record">Loans Record</a></div>
+                    <div class="navbutton"><a href="/trip_profile">Trip Profile</a></div>
+                    <div class="navbutton"><a href="/truck_maintenance">Truck Maintenance</a></div>
+                    <div class="navbutton"><a href="/tyre_record">Tyre Record</a></div>
+                </div>
+            </div>
+            <a href="/profile"><i class="fa far fa-user-circle"></i>Profile</a>
+            <div class="navbutton">
+                <a href="#" onclick="show_hide1()"><i class="fa fab fa-wpforms"></i>Show<i class="fas fa-caret-down"
+                        id="caret1"></i></a>
+                <div class="drop" style="display: none;" id="drop-content1">
+                    <div class="navbutton"><a href="/cashbook_show">Cashbook</a></div>
+                    <div class="navbutton"><a href="/bilty_show">Bilty</a></div>
+                    <div class="navbutton"><a href="/document_show">Documents</a></div>
+                    <div class="navbutton"><a href="/loans_record_show">Loans Record</a></div>
+                    <div class="navbutton"><a href="/trip_show">Trip Profile</a></div>
+                    <div class="navbutton"><a href="/truck_maintenance_show">Truck Maintenance</a></div>
+                    <div class="navbutton"><a href="/tyre_record_show">Tyre Record</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="nav_side" style="transform: translate(5px, 439px);">
+            <a  href="/about"><i class="fa fa-info-circle" aria-hidden="true"></i>About</a>
+    </section>
+    {% block body %}
+    {% endblock body %}
+    <!-- Footer -->
+    <div  class="footer">
+   &copy;All rights are reserved
+   <div class="float-right" id="google_translate_element"></div> 
+  </div>
+    <!-- Optional JavaScript -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-latest.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            setTimeout(function () {
+                $("#alert-message").hide();
+            }, 2000);
+        });
+    </script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+    function show_hide() {
+        var click = document.getElementById("drop-content");
+
+        if (click.style.display == "none") {
+            document.getElementById("caret").style.transform = "rotate(180deg)";
+            click.style.display = "block";
+        } else {
+            click.style.display = "none";
+            document.getElementById("caret").style.transform = "rotate(0deg)";
+        }
+    }
+    function show_hide1() {
+        var click = document.getElementById("drop-content1");
+
+        if (click.style.display == "none") {
+            document.getElementById("caret1").style.transform = "rotate(180deg)";
+            click.style.display = "block";
+        } else {
+            click.style.display = "none";
+            document.getElementById("caret1").style.transform = "rotate(0deg)";
+        }
+    }
+    $(document).ready(function () {
+        var max_fields = 6; //maximum input boxes allowed
+        var wrapper1 = $(".destination"); //Fields wrapper
+        var wrapper2 = $(".delivery-date"); //Fields wrapper
+        var wrapper3 = $(".good-type"); //Fields wrapper
+        var wrapper4 = $(".weight"); //Fields wrapper
+        var wrapper5 = $(".rate"); //Fields wrapper
+        var add_button = $(".add_field_button"); //Add button ID
+        var re_button = $(".remove_field_button"); //Add button ID
+        var x = 2; //initlal text box count
+        $(add_button).click(function (e) { //on add input button click
+            e.preventDefault();
+            if (x < max_fields) { //max input box allowed
+                //text box increment
+                $(wrapper1).append('<div><input type="text" class="remove' + [x] + '" name="destination' + [x] + '" id="destination' + [x] + '" placeholder="ADDRESS' + [x] + '" /></div>'); //add input box
+                
+                $(wrapper2).append('<div><input type="date" class="remove' + [x] + '" name="delivery_date' + [x] + '" id="delivery-date' + [x] + '"/></div>');
+
+                $(wrapper3).append('<div><input type="text" class="remove' + [x] + '" name="good_type' + [x] + '" id="good-type' + [x] + '" placeholder="TYPE OF GOOD' + [x] + '"/></div>');
+
+                $(wrapper4).append('<div><input type="text" class="remove' + [x] + '" name="weight' + [x] + '" id="weight' + [x] + '" placeholder="WEIGHT OF GOOD' + [x] + '"/></div>');
+
+                $(wrapper5).append('<div><input type="text" class="remove' + [x] + '" name="rate' + [x] + '" id="rate' + [x] + '" placeholder="RATE' + [x] + '"/></div>');
+                x++;
+            }
+        });
+        $(re_button).click(function (e) { //user click on remove text
+            x--;
+            e.preventDefault();
+            $('.remove' + [x] + '').remove();
+        })
+    });
+</script>
+
+<script type="text/javascript"> 
+        function googleTranslateElementInit() { 
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'}, 
+                'google_translate_element'
+            ); 
+        } 
+    </script> 
+      
+    <script type="text/javascript" src=
+"https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+    </script>
+
+
+</html>

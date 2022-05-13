@@ -1,0 +1,150 @@
+ header{
+    background-image:linear-gradient(rgba(0, 0, 0, 0.751),rgba(0, 0, 0, 0.751)), url(image/1_DwMJNbbk8_PP9kpk8HIxGw.png); 
+     background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+    
+} 
+.textclass {
+    position: absolute;
+    width: 1140px;
+    top: 45%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%,-50%);
+    word-spacing: 3.5px;
+    padding: 0;
+    color:#fff;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.para{
+    font-size: 25px;
+    font-style: italic;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    width: 60%;
+    margin-left: 20%;
+
+}
+.left-side{
+    background: #E5E5E5;
+}
+
+.card-login{
+    margin-top:50%;
+    background: rgba(196, 196, 196, 0.27);
+    border: none;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border-radius: .25rem;
+}
+
+.button-login {
+    outline: none;
+    margin-left:325px;
+    height:60px;
+    line-height:0px;  
+    width:60px;
+    padding-bottom: 15px;
+    padding-left:8px;  
+    text-align:center;
+    font-size:50px;
+    font-weight:bold;
+    border-radius:50%;
+    background: #00856D;
+    color:white;
+    text-align:center;
+    cursor:pointer;
+
+  }
+  .button-login:focus{
+      outline: none;
+  }
+
+.heading{
+    position: absolute;
+    top: 40px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 40px;
+    line-height: 42px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+
+.content p{
+position: absolute;
+top: 250px;
+font-family: Roboto;
+font-style: italic;
+font-weight: 200;
+font-size: 30px;
+line-height: 40px;
+color: #000000;
+}
+
+.side-partion{
+    height: 100vh;
+    background: linear-gradient(180deg, #4CA259 0%, #18DAC3 100%);
+    }
+    
+#logo{
+    position: absolute;
+    top: 50px;
+    left: auto;
+    animation: fill 0.5s ease forwards 3.5s;
+}
+#logo path:nth-child(1){
+    stroke-dasharray: 405px;
+    stroke-dashoffset: 405px;
+    animation: line-anim 2s ease forwards;
+}
+#logo path:nth-child(2){
+    stroke-dasharray: 235px;
+    stroke-dashoffset: 235px;
+    animation: line-anim 2s ease forwards 0.3s;
+}
+#logo path:nth-child(3){stroke-dasharray: 150px;
+    stroke-dashoffset: 150px;
+    animation: line-anim 2s ease forwards 0.6s;
+}
+#logo path:nth-child(4){stroke-dasharray: 254px;
+    stroke-dashoffset: 254px;
+    animation: line-anim 2s ease forwards 0.9s;
+}
+#logo path:nth-child(5){stroke-dasharray: 161px;
+    stroke-dashoffset: 161px;
+    animation: line-anim 2s ease forwards 1.2s;
+}
+#logo path:nth-child(6){stroke-dasharray: 379px;
+    stroke-dashoffset: 379px;
+    animation: line-anim 2s ease forwards 1.5s;
+}
+#logo path:nth-child(7){stroke-dasharray: 235px;
+    stroke-dashoffset: 235px;
+    animation: line-anim 2s ease forwards 1.8s;
+}
+
+@keyframes line-anim{
+    to{
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes fill{
+    from{
+        fill: transparent;
+    }
+    to{
+        fill:white;
+    }
+}

@@ -1,0 +1,50 @@
+{% extends 'base2.html' %}
+{% block body %}
+<div class="container my-4 bg pb-5">
+  <div class="row justify-content-center ">
+    <div class="col-md-6 mx-auto">
+      <div class="card" style="border: none">
+        <div class="card-body card_back">
+          <h2>TRUCK MAINTENANCE</h2>
+            <form action="{% url 'truck_maintenance_update' truck.id %}" method="post">
+            {% csrf_token %}
+
+                <div class="inputwrapper">
+                    <label for="truckno" class="newline">Truck No.</label>
+                    <input type="text"name="truckno" id="truckno" value ="{{truck.truckno}}" placeholder="XX=00-XX-00">
+                </div>
+                <div class="inputwrapper">
+                    <label for="service-date" class="newline">DATE OF SERVICE</label>
+                    <input type="date" value ="{{truck.service_date|date:"Y-m-d"}}" name="service_date" id="service-date">
+                </div>
+
+                <div class="inputwrapper">
+                    <label for="service-km" class="newline">KILOMETERS READING AT SERVICE</label>
+                    <input type="text" name="service_km" id="service-km" value ="{{truck.service_km}}" placeholder="KILOMETERS">
+                </div>
+                <div class="inputwrapper">
+                    <label for="service-details" class="newline">WORK PERFORMED AND SERVICE SCHEDULE</label>
+                    <input type="text" name="service_details" id="service-details" value ="{{truck.service_details}}" placeholder="DETAILS...">
+                </div>
+                  <div class="inputwrapper">
+                    <label for="service- by" class="newline">SERVICE PERFORMED BY</label>
+                    <input type="text" name="service_by" id="service-by" value ="{{truck.service_by}}" placeholder="NAME">
+                </div>
+                  <div class="inputwrapper">
+                    <label for="service-cost" class="newline">SERVICE COST</label>
+                    <input type="text" name="service_cost" id="service-cost" value ="{{truck.service_cost}}" placeholder="\Rs.">
+                </div>
+                  <div class="inputwrapper">
+                    <label for="service-note" class="newline">NOTE</label>
+                    <input type="text" name="service_note" id="service-note" value ="{{truck.service_note}}" placeholder="">
+                </div>
+                <button type="submit" class="mybutton">Submit</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+{% endblock body %}

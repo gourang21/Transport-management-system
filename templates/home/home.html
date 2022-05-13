@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{%  block title %}Transport Management System{% endblock title%}
+{% block body %}
+   <div class="container-fluid">
+        <div class="row">
+            <div class="left-side col-sm-7">
+                <div class="heading">
+                    Transport Management
+                </div>
+                <div class="content">
+                    <p>Helps you increase profit and performance harmonizing sales with logistics. Web-based
+                        transport
+                        management software that helps to manage the fleet operations smoothly.</p>
+                </div>
+               
+            </div>
+            <div class="side-partion col-sm-5">
+                <div class="container my-4">
+                    <div class="row justify-content-center">
+                        <svg id="logo"
+                        width="352" height="58" viewBox="0 0 352 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M71.6163 3.81597L57.0723 54H49.7283L38.0643 13.608L25.9683 54L18.6963 54.072L4.65625 3.81597H11.6403L22.5843 46.368L34.6803 3.81597H42.0243L53.5443 46.224L64.5602 3.81597H71.6163Z" stroke="white" stroke-width="3" mask="url(#path-1-outside-1)"/>
+                            <path d="M85.3384 9.14397V25.92H103.626V31.32H85.3384V48.6H105.786V54H78.7864V3.74397H105.786V9.14397H85.3384Z" stroke="white" stroke-width="3" mask="url(#path-1-outside-1)"/>
+                            <path d="M122.253 48.672H139.82V54H115.701V3.81597H122.253V48.672Z" stroke="white" stroke-width="3" mask="url(#path-1-outside-1)"/>
+                            <path d="M144.331 28.872C144.331 23.976 145.435 19.584 147.643 15.696C149.851 11.76 152.851 8.68797 156.643 6.47997C160.483 4.27197 164.731 3.16797 169.387 3.16797C174.859 3.16797 179.635 4.48797 183.715 7.12797C187.795 9.76797 190.771 13.512 192.643 18.36H184.795C183.403 15.336 181.387 13.008 178.747 11.376C176.155 9.74397 173.035 8.92797 169.387 8.92797C165.883 8.92797 162.739 9.74397 159.955 11.376C157.171 13.008 154.987 15.336 153.403 18.36C151.819 21.336 151.027 24.84 151.027 28.872C151.027 32.856 151.819 36.36 153.403 39.384C154.987 42.36 157.171 44.664 159.955 46.296C162.739 47.928 165.883 48.744 169.387 48.744C173.035 48.744 176.155 47.952 178.747 46.368C181.387 44.736 183.403 42.408 184.795 39.384H192.643C190.771 44.184 187.795 47.904 183.715 50.544C179.635 53.136 174.859 54.432 169.387 54.432C164.731 54.432 160.483 53.352 156.643 51.192C152.851 48.984 149.851 45.936 147.643 42.048C145.435 38.16 144.331 33.768 144.331 28.872Z" stroke="white" stroke-width="3" mask="url(#path-1-outside-1)"/>
+                            <path d="M225.148 54.504C220.492 54.504 216.244 53.424 212.404 51.264C208.564 49.056 205.516 46.008 203.26 42.12C201.052 38.184 199.948 33.768 199.948 28.872C199.948 23.976 201.052 19.584 203.26 15.696C205.516 11.76 208.564 8.71197 212.404 6.55197C216.244 4.34397 220.492 3.23997 225.148 3.23997C229.852 3.23997 234.124 4.34397 237.964 6.55197C241.804 8.71197 244.828 11.736 247.036 15.624C249.244 19.512 250.348 23.928 250.348 28.872C250.348 33.816 249.244 38.232 247.036 42.12C244.828 46.008 241.804 49.056 237.964 51.264C234.124 53.424 229.852 54.504 225.148 54.504ZM225.148 48.816C228.652 48.816 231.796 48 234.58 46.368C237.412 44.736 239.62 42.408 241.204 39.384C242.836 36.36 243.652 32.856 243.652 28.872C243.652 24.84 242.836 21.336 241.204 18.36C239.62 15.336 237.436 13.008 234.652 11.376C231.868 9.74397 228.7 8.92797 225.148 8.92797C221.596 8.92797 218.428 9.74397 215.644 11.376C212.86 13.008 210.652 15.336 209.02 18.36C207.436 21.336 206.644 24.84 206.644 28.872C206.644 32.856 207.436 36.36 209.02 39.384C210.652 42.408 212.86 44.736 215.644 46.368C218.476 48 221.644 48.816 225.148 48.816Z" stroke="white" stroke-width="3" mask="url(#path-1-outside-1)"/>
+                            <path d="M309.901 4.17597V54H303.349V16.848L286.789 54H282.181L265.549 16.776V54H258.997V4.17597H266.053L284.485 45.36L302.917 4.17597H309.901Z" stroke="white" stroke-width="3" mask="url(#path-1-outside-1)"/>
+                            <path d="M327.565 9.14397V25.92H345.853V31.32H327.565V48.6H348.013V54H321.013V3.74397H348.013V9.14397H327.565Z" stroke="white" stroke-width="3" mask="url(#path-1-outside-1)"/>
+                            </svg>
+                            
+                        <div class="col-8">
+                            <div class="card-login">
+                                <div class="card-body">
+                                    <h3>Login</h3>
+                                    <form method="post" action='{% url 'handlelogin' %}'>
+                                        <div class="form-group">
+                                            <label for="loginuname">Username</label>
+                                            <input type="text" class="form-control" id="loginuname"
+                                                placeholder="Enter your Name" name="loginuname" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="loginpassword">Choose a password</label>
+                                            <input type="password" class="form-control" id="loginpassword1"
+                                                placeholder="password" name="loginpassword1" required>
+                                        </div>
+                                        {% csrf_token %}
+                                        <button type="submit" class="button-login">&#8594</button>
+                                        <a class="forget" href="/reset_password">Forget Password</a>
+                                    </form>
+                                </div>
+                                <a class="btn btn-success btn-block" href="/signup" role="button">Sign up</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %} 

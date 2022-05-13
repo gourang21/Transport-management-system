@@ -1,0 +1,90 @@
+{% extends 'base2.html' %}
+{% block body %}
+<style>
+.mybuttonemi{
+    background-color: grey;
+    padding: 3px 10px;
+    text-decoration: none;
+    margin-bottom: 15px;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    border-radius: 20px;
+  }
+  .mybuttonemi:focus{outline:none;}
+  </style>
+<div class="container my-4 bg pb-5">
+    <div class="row justify-content-center ">
+        <div class="col-md-6 mx-auto">
+            <div class="card" style="border: none">
+                <div class="card-body card_back">
+                    <h2>LOANS RECORD</h2>
+            <form action="{% url 'loans_record_update' loan.id %}" method="post">
+            {% csrf_token %}
+
+                <div class="inputwrapper">
+                    <label for="truckno" class="newline">Truck No.</label>
+                    <input type="text"name="truckno" id="truckno" value ="{{loan.truckno}}" placeholder="XX=00-XX-00">
+                </div>
+                
+
+                <div class="inputwrapper">
+                    <label for="owner-name" class="newline">OWNER'S NAME</label>
+                    <input type="text" name="owner_name" id="owner-name" value ="{{loan.owner_name}}" placeholder="AMOUNT">
+                </div>
+                <div class="inputwrapper">
+                            <label for="loan-ammount" class="newline">LOAN AMOUNT</label>
+                            <input type="number" name="loan_amount" id="loan_amount"value="{{loan.loan_amount}}" placeholder="AMOUNT">
+                </div>
+                <div class="inputwrapper">
+                    <label for="interest-rate" class="newline">INTEREST RATE</label>
+                    <input type="text" name="interest_rate" id="interest_rate" value ="{{loan.interest_rate}}" placeholder="INTEREST">
+                </div>
+                  <div class="inputwrapper">
+                    <label for="loan-duration" class="newline">LOAN DURATION</label>
+                    <input type="text" name="loan_duration" id="loan_duration" value ="{{loan.loan_duration}}" placeholder="YEARS">
+                </div>
+                  {% comment %} <div class="inputwrapper">
+                    <label for="installment_amount" class="newline">INSTALLMENT AMOUNT</label>
+                    <input type="text" name="installment_amount" id="installment-amount" value ="{{loan.installment_amount}}" placeholder="AMOUNT">
+                </div> {% endcomment %}
+                <div class="inputwrapper">
+                            {% comment %} <label for="installment-amount" class="newline">INSTALLMENT AMOUNT</label> {% endcomment %}
+                            <button type="button" class="mybuttonemi" onclick="cal()" name="installment_amount" id="installment_amount">Installment amount</button>
+                            <label id="result"> </label>
+                </div>
+                <div class="inputwrapper">
+                    <label for="installment-date" class="newline">INSTALLMENT DATE</label>
+                    <input type="date" value ="{{loan.installment_date|date:"Y-m-d" }}" name="installment_date" id="installment_date">
+                </div> 
+                
+
+
+                <div class="inputwrapper">
+                    <label for="months" class="newline">NO. OF INSTALLMENTS PAID</label>
+                    <input type="text" name="month_paid" id="month_paid" value ="{{loan.month_paid}}" placeholder="INSTALLMENTS PAID">
+                </div>
+                <div class="inputwrapper">
+                    <label for="months" class="newline">NO. OF INSTALLMENTS REMAINING</label>
+                    <input type="text" name="months" id="months" value ="{{loan.months}}" placeholder="MONTHS REMAINING">
+                </div>
+                <button type="submit" class="mybutton">Submit</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+function cal(){
+    p=document.getElementById("loan_amount").value;   
+    r=document.getElementById("interest_rate").value;
+    t=document.getElementById("loan_duration").value;
+    result=document.getElementById("result");
+    
+    result.innerHTML =(p*r*t/100);
+    }
+</script>
+{% endblock body %}

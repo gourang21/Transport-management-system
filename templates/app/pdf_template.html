@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c482f50f36.js" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+<style>
+    @page {
+        size: a4 portrait;
+        @frame header_frame {           /* Static Frame */
+            -pdf-frame-content: header_content;
+            left: 50pt; width: 512pt; top: 50pt; height: 40pt;
+        }
+        @frame content_frame {          /* Content Frame */
+            left: 50pt; width: 512pt; top: 90pt; height: 632pt;
+        }
+        @frame footer_frame {           /* Another static Frame */
+            -pdf-frame-content: footer_content;
+            left: 50pt; width: 512pt; top: 772pt; height: 20pt;
+        }
+    }
+</style>
+</head>
+
+<body>
+    <!-- Content for Static Frame 'footer_frame' -->
+    <div id="footer_content">page <pdf:pagenumber>
+        of <pdf:pagecount>
+    </div>
+<h1>TRUCK NO: {{data.truckno}}</h1>
+<h2>COMPANY NAME: {{data.company_name}}</h2>
+<h2>PICKUP LOACATION: {{data.pickup}}</h2>
+<hr>
+
+<table class="table">
+  <thead>
+    <tr>
+      <td></td>
+      <td><strong>DESTINATION 1</strong></td>
+      <td><strong>DESTINATION 2</strong></td>
+      <td><strong>DESTINATION 3</strong></td>
+      <td><strong>DESTINATION 4</strong></td>
+      <td><strong>DESTINATION 5</strong></td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>DESTINATION</strong></td>
+      <td><br>{{data.destination}}<br></td>
+      <td>{{data.destination2}}</td>
+      <td>{{data.destination3}}</td>
+      <td>{{data.destination4}}</td>
+      <td>{{data.destination5}}</td>
+    </tr>
+    <tr>
+      <td><strong>DELIVERY DATE</strong></td>
+      <td><br>{{data.delivery_date}}<br></td>
+      <td>{{data.delivery_date2}}</td>
+      <td>{{data.delivery_date3}}</td>
+      <td>{{data.delivery_date4}}</td>
+      <td>{{data.delivery_date5}}</td>
+    </tr>
+    <tr>
+      <td><strong>GOOD TYPE</strong></td>
+      <td><br>{{data.good_type}}<br></td>
+      <td>{{data.good_type2}}</td>
+      <td>{{data.good_type3}}</td>
+      <td>{{data.good_type4}}</td>
+      <td>{{data.good_type5}}</td>
+      
+    </tr>
+    <tr>
+      <td><strong>RATE</strong></td>
+      <td><br>{{data.rate}}<br></td>
+      <td>{{data.rate2}}</td>
+      <td>{{data.rate3}}</td>
+      <td>{{data.rate4}}</td>
+      <td>{{data.rate5}}</td>
+      
+    </tr>
+    <tr>
+      <td><strong>WEIGHT</strong></td>
+      <td><br>{{data.weight}}<br></td>
+      <td>{{data.weight2}}</td>
+      <td>{{data.weight3}}</td>
+      <td>{{data.weight4}}</td>
+      <td>{{data.weight5}}</td>
+    </tr>
+    
+  </tbody>
+</table>
+<hr>
+<h2>DIESEL CONSUMPTION PER CONSIGNMENT: {{data.diesel}}</h2>
+<h2>ROLLING KILOMETERS: {{data.trip_kilometers}}</h2>
+<h2>TRIP EXPENSES: {{data.trip_expenses}}</h2>
+<h2>TOLL TAX: {{data.toll_tax}}</h2>
+<h2>FAIR: {{data.fair}}</h2>
+<h2>BALANCE: {{data.balance}}</h2>
+<h2>UNLOADING AMOUNT: {{data.unloading_amount}}</h2>
+<h2>BALANCE COLLECTED: {{data.balance_collected}}</h2>
+<h2>NOTE: {{data.unloading_description}}</h2>
+<hr>
+<h5 style="text-align: center;">***</h5>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</body>
+</html>

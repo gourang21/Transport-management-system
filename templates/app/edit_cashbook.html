@@ -1,0 +1,44 @@
+{% extends 'base2.html' %}
+{% block body %}
+<div class="container my-4 bg pb-5">
+  <div class="row justify-content-center ">
+    <div class="col-md-6 mx-auto">
+      <div class="card" style="border: none">
+        <div class="card-body card_back">
+          <h2>CASHBOOK</h2>
+            <form action="{% url 'cashbook_update' cash.id %}" method="post">
+            {% csrf_token %}
+
+                <div class="inputwrapper">
+                    <label for="cashbook-date" class="newline">DATE</label>
+                    <input type="date" value ="{{cash.cashbook_date|date:"Y-m-d" }}" name="cashbook_date" id="cashbook-date">
+                </div>
+
+                <div class="inputwrapper">
+                    <label for="particular" class="newline">PARTICULAR</label>
+                    <input type="text" name="particular" id="particular" value ="{{cash.particular}}" placeholder="description">
+                </div>
+
+                <div class="inputwrapper">
+                    <label for="cashbook_amount" class="newline">AMOUNT</label>
+                    <input type="text" name="cashbook_amount" id="cashbook_amount" value ="{{cash.cashbook_amount}}" placeholder="AMOUNT">
+                </div>
+
+                <div class="inputwrapper">
+                    <label for="transection_type" class="newline">TRANSECTION TYPE</label>
+                    <input type="text" name="transection_type" value ="{{cash.transection_type}}" id="transection_type">
+                        {% comment %} <option value="not-selected">CREDIT/DEBIT</option>
+                        <option value="credit">CREDIT</option>
+                        <option value="debit">DEBIT</option>
+                    </select> {% endcomment %}
+                </div>
+                <button type="submit" class="mybutton">Submit</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+{% endblock body %}

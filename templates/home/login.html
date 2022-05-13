@@ -1,0 +1,34 @@
+{% comment %} {% extends 'base.html' %}
+
+{% block title %}Transport Management System - Login{% endblock title%}
+
+{% block body %}
+<div class="container my-4">
+  <div class="row justify-content-center">
+    <div class="col-md-4 col-sm-4 col-xs-12">
+      <div class="card">
+        <div class="card-body">
+          <h3>Login</h3>
+          <form method="post" action='{% url ' handlelogin' %}'>
+            <div class="form-group">
+              <label for="loginuname">Username</label>
+              <input type="text" class="form-control" id="loginuname" placeholder="Enter your Name" name="loginuname"
+                required>
+            </div>
+            <div class="form-group">
+              <label for="loginpassword">Choose a password</label>
+              <input type="password" class="form-control" id="loginpassword1" placeholder="password"
+                name="loginpassword1" required>
+            </div>
+            {% csrf_token %}
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+            <a class="forget" href="/reset_password">Forget Password</a>
+        </div>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+{% endblock body %} {% endcomment %}

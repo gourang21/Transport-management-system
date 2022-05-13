@@ -1,0 +1,20 @@
+{% extends 'base2.html' %}
+{% block body %}
+<div class="container my-4 bg pb-5">
+    <div class="row justify-content-center ">
+        <div class="col-md-10 mx-auto">
+            <h2>Profile</h2>
+            <p>Username: {{user}} </p>
+            <p>First name: {{user.first_name}} </p>
+            <p>Last name: {{user.last_name}} </p>
+            <p>Email: {{user.email}} </p>
+            <div class="form-group row">
+                <div class="col-sm-6">
+                    <a class="btn btn-success my-2 my-sm-0 mr-2" href="/profile/edit" role="button">Edit Profile</a>
+                    <a class="btn btn-success my-2 my-sm-0 mr-2" href="/reset_password" role="button">Reset Password</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

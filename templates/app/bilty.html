@@ -1,0 +1,132 @@
+{% extends 'base2.html' %}
+{% block body %}
+<div class="container my-4 bg pb-5">
+    <div class="row justify-content-center ">
+        <div class="col-md-10 mx-auto">
+            <div class="card" style="border: none">
+                <div class="card-body card_back">
+                    <h2>BILTY</h2>
+                    <form action="/bilty_submit/" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="lr.no" class="newline">L.R. NO.</label>
+                                    <input type="text" name="lr_no" id="lr.no" placeholder='L.R. NO.'>
+                                </div>
+                            </div>
+                             <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="truckno" class="newline">TRUCK NO.</label>
+                                    <input type="text" name="truckno" id="truckno" placeholder="XX-00-XX-00">
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group row">
+                           
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    {% comment %} <label for="rate" class="newline">RATE</label>
+                                    <input type="text" name="rate" id="rate" placeholder="-\Rs"> {% endcomment %}
+                                    <label for="invoiceno" class="newline">INVOICE NO</label>
+                                    <input type="text" name="invoiceno" id="invoiceno" placeholder="Invoice No"> 
+
+
+                                </div>
+                            </div>
+                                <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="date" class="newline">DATE</label>
+                                    <input type="date" name="date" id="date">
+                                </div>
+                            </div> 
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="consignor" class="newline">CONSIGNOR</label>
+                                    <textarea name="consignor_details" id="consignor-details" cols="100" rows="3"
+                                placeholder="consignor-details"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="consignee" class="newline">CONSIGNEE</label>
+                                     <textarea name="consignee_details" id="consignee-details" cols="100" rows="3"
+                                placeholder="consignee-details"></textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+
+                                <div class="inputwrapper">
+                                    <label for="rate" class="newline">RATE</label>
+                                    <input type="text" name="rate" id="rate" placeholder="-\Rs"> 
+
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="weight" class="newline">WEIGHT</label>
+                                    <input type="text" name="weight" id="weight" placeholder="KILOGRAMS">
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+
+                                <div class="inputwrapper">
+                                    <label for="fair" class="newline">FAIR</label>
+                                    <input type="text" name="fair" id="fair" placeholder="BHADA">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="advance" class="newline">ADVANCE</label>
+                                    <input type="text" name="advance" id="advance" placeholder="ADVANCE AMOUNT">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="recived-money" class="newline">TOTAL AMOUNT</label>
+                                    <input type="text" name="recived_money" id="recived-money" placeholder="TOTAL AMOUNT"> 
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="goods-description" class="newline">DESCRIPTION</label>
+                                    <input type="text" name="goods_description" id="goods-description"
+                                        placeholder="NOTE">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-2">
+                                <button type="submit" class="mybutton">Submit</button>
+                            </div>
+                            <span>
+                                    <input type="text" name="mob" id="mob"
+                                        placeholder="MOBILE NO FOR SMS">
+                                </span>
+
+                        
+                        </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock body %}

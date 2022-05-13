@@ -1,0 +1,98 @@
+{% extends 'base2.html' %}
+{% block body %}
+<header>
+    <div class="container bg pb-5">
+        <div class="row justify-content-center ">
+            <div class="col-md-10 mx-auto my-2" style="color: white;">
+                <h5>TYRE RECORD</h5>
+                <div class="row">
+                <div class="col-4">
+                <form method="get" action="/search" class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search Tyre no." aria-label="Search" name="4" id="query4">
+                    <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+                    {% csrf_token %}
+                </form></div>
+                <div class="col-ml-4">
+                <a href="{% url 'tyre_record_show' %}" class = " btn btn-outline-success ">Show All</a>
+                </div>
+                </div>
+                {% if page_obj|length < 1 %}
+                <p>No search found</p>
+                {% endif %}
+                <table class="table table-bordered my-3" style="color:#fff;">
+                    <thead class="border-bottom font-weight-bold">
+                        <tr>
+                            <td>TRUCK NO</td>
+                            <td>DATE </td>
+                            <td>BRAND NAME</td>
+                            <td>MODEL NO.</td>
+                            <td>TYRE NUMBER</td>
+                            <td>TYRE PRICE</td>
+                            <td>KILOMETERS READING</td>
+                            <td>STATUS</td>
+                            <td>DESCRIPTION</td>
+                            <td>
+                                <a href="{% url 'tyre_record' %}" class="btn btn-outline-success">
+                                    <i class="fas fa-plus"></i> Add New
+                                </a>
+                            </td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for tyre in page_obj %}
+                        <tr>
+                            <td>{{tyre.truckno}}</td>
+                            <td>{{tyre.tyre_date}}</td>
+                            <td>{{tyre.tyre_brand}}</td>
+                            <td>{{tyre.tyre_model}}</td>
+                            <td>{{tyre.tyre_number}}</td>
+                            <td>{{tyre.tyre_price}}</td>
+                            <td>{{tyre.km_reading}}</td>
+                            <td>{{tyre.tyre_status}}</td> 
+                           
+
+                            <td>
+                            {% if tyre.tyre_description %}
+                            {{tyre.tyre_description}}
+                            {% else %}
+                            <span>NONE</span>
+                            {% endif%}
+                            </td>
+                            <td>
+                                <a href="{% url 'tyre_record_edit' tyre.id %}" class="btn text-secondary px-0">
+                                    <i class="far fa-edit fa-lg"></i>
+                                </a>
+                                <form action="{% url 'tyre_record_delete' tyre.id %}" method="post" class="d-inline">
+                                    {% csrf_token %}
+                                    <button type="submit" class="btn">
+                                        <i class="fas fa-user-times fa-lg text-danger float-right"></i>
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+<div class="">
+                    Showing page {{page_obj.number}} of {{page_obj.paginator.num_pages}}
+                    </div>
+                <nav aria-label="Page navigation example">
+            <ul class="pagination align-right float-right mr-auto">
+            {% if page_obj.has_previous %}
+            <li {% if page_obj.number == 1%} class="page-item active" {% endif %}>
+            <a class="page-link" href="?page=1" tabindex="-1">&laquo; first</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+            {% endif%}
+            {% if page_obj.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a></li>
+            {% endif %}
+    </li>
+  </ul>
+</nav>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock body %}

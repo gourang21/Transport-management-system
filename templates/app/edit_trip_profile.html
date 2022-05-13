@@ -1,0 +1,160 @@
+{% extends 'base2.html' %}
+{% block body %}
+<div class="container my-4 bg pb-5">
+  <div class="row justify-content-center ">
+    <div class="col-md-10 mx-auto">
+      <div class="card" style="border: none">
+        <div class="card-body card_back">
+                    <h2>TRIP PROFILE</h2>
+                    <form action="{% url 'trip_profile_update' trip.id %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="truckno" class="newline">Truck No.</label>
+                                    <input type="text" name="truckno" id="truckno" value="{{trip.truckno}}"placeholder="XX-00-XX-00">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="company-name" class="newline">COMPANY NAME</label>
+                                    <input type="text" name="company_name" value="{{trip.company_name}}" id="company_name" placeholder="COMPANY">
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="pickup" class="newline">PICK UP LOACTION</label>
+                                    <input type="text" name="pickup"value="{{trip.pickup}}" id="pickup" placeholder="ADDRESS">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="inputwrapper destination">
+                                    <label for="destination" class="newline">DESTINATION</label>
+                                    <input class="input" type="text" name="destination" value="{{trip.destination}}" id="destination" placeholder="ADDRESS" >
+                                    <input class="input" type="text" name="destination2" value="{{trip.destination2}}" id="destination" placeholder="ADDRESS" >
+                                    <input class="input" type="text" name="destination3" value="{{trip.destination3}}" id="destination" placeholder="ADDRESS" >
+                                    <input class="input" type="text" name="destination4" value="{{trip.destination4}}" id="destination" placeholder="ADDRESS" >
+                                    <input class="input" type="text" name="destination5" value="{{trip.destination5}}" id="destination" placeholder="ADDRESS" >
+                                    
+                                </div>
+                            </div>
+                        </div>
+                         <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="inputwrapper delivery-date">
+                                  <label for="delivery-date" class="newline">DELIVERY DATE</label>
+                                    <input class="input" type="date" name="delivery_date" value="{{trip.delivery_date|date:"Y-m-d"}}" id="delivery-date"> 
+                                    <input class="input" type="date" name="delivery_date2" value="{{trip.delivery_date2|date:"Y-m-d"}}" id="delivery-date"> 
+                                    <input class="input" type="date" name="delivery_date3" value="{{trip.delivery_date3|date:"Y-m-d"}}" id="delivery-date"> 
+                                    <input class="input" type="date" name="delivery_date4" value="{{trip.delivery_date4|date:"Y-m-d"}}" id="delivery-date"> 
+                                    <input class="input" type="date" name="delivery_date5" value="{{trip.delivery_date5|date:"Y-m-d"}}" id="delivery-date"> 
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="inputwrapper good-type">
+                                 
+                                     <label for="good-type" class="newline">GOOD'S TYPE</label>
+                                    <input class="input" type="text" name="good_type" value="{{trip.good_type}}" id="good-type" placeholder="TYPE OF GOOD">
+                                    <input class="input" type="text" name="good_type2" value="{{trip.good_type2}}" id="good-type" placeholder="TYPE OF GOOD">
+                                    <input class="input" type="text" name="good_type3" value="{{trip.good_type3}}" id="good-type" placeholder="TYPE OF GOOD">
+                                    <input class="input" type="text" name="good_type4" value="{{trip.good_type4}}" id="good-type" placeholder="TYPE OF GOOD">
+                                    <input class="input" type="text" name="good_type5" value="{{trip.good_type5}}" id="good-type" placeholder="TYPE OF GOOD">
+                                </div>
+                            </div>
+                        </div>
+                    <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="inputwrapper weight">
+                                <label for="weight" class="newline">WEIGHT</label>
+                                    <input class="input" type="text" name="weight"  value="{{trip.weight}}" id="weight" placeholder="WEIGHT OF GOOD">
+                                    <input class="input" type="text" name="weight2"  value="{{trip.weight2}}" id="weight" placeholder="WEIGHT OF GOOD">
+                                    <input class="input" type="text" name="weight3"  value="{{trip.weight3}}" id="weight" placeholder="WEIGHT OF GOOD">
+                                    <input class="input" type="text" name="weight4"  value="{{trip.weight4}}" id="weight" placeholder="WEIGHT OF GOOD">
+                                    <input class="input" type="text" name="weight5"  value="{{trip.weight5}}" id="weight" placeholder="WEIGHT OF GOOD">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="inputwrapper rate">
+                                    <label for="rate" class="newline">RATE</label>
+                                    <input class="input" type="text" name="rate" value="{{trip.rate}}" id="rate" placeholder="RATE">
+                                    <input class="input" type="text" name="rate2" value="{{trip.rate2}}" id="rate" placeholder="RATE">
+                                    <input class="input" type="text" name="rate3" value="{{trip.rate3}}" id="rate" placeholder="RATE">
+                                    <input class="input" type="text" name="rate4" value="{{trip.rate4}}" id="rate" placeholder="RATE">
+                                    <input class="input" type="text" name="rate5" value="{{trip.rate5}}" id="rate" placeholder="RATE">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                <label for="diesel" class="newline">DIESEL CONSUMPTION PER CONSIGNMENT</label>
+                                <input type="text" name="diesel" id="diesel" value="{{trip.diesel}}" placeholder="Liters">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="trip-kilometers" class="newline">ROLLING KILOMETERS</label>
+                                    <input type="text" name="trip_kilometers" value="{{trip.trip_kilometers}}" id="trip_kilometers" placeholder="KILOMETERS">
+                                </div>
+                            </div>
+                        </div>
+                         <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                <label for="trip-expenses" class="newline">ALL EXPENSES PER CONSIGNMENT</label>
+                                <input type="text" name="trip_expenses" value="{{trip.trip_expenses}}" id="trip-expenses" placeholder="EXPENSES">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="toll-tax" class="newline">TOLL TAX</label>
+                                    <input type="text" name="toll_tax" value="{{trip.toll_tax}}" id="toll_tax" placeholder="\Rs.">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                <label for="fair" class="newline">FAIR</label>
+                                <input type="text" name="fair" value="{{trip.fair}}" id="fair" placeholder="BHADA">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                     <label for="balance" class="newline">BALANCE AMOUNT</label>
+                                    <input type="text" name="balance" value="{{trip.balance}}" id="balance" placeholder="AMOUNT">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="unloading-amount" class="newline">UNLOADING AMOUNT</label>
+                                    <input type="text" name="unloading_amount" value="{{trip.unloading_amount}}" id="unloading_amount" placeholder="UNLOADING">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                   <label for="balance-collected" class="newline">BALANCE COLLECTED</label>
+                                    <input type="text" name="balance_collected" value="{{trip.balance_collected}}" id="balance_collected" placeholder="\Rs">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="unloading-description" class="newline">DESCRIPTION</label>
+                                    <input type="text" name="unloading_description" value="{{trip.unloading_descriptions}}" id="unloading_description" placeholder="NOTE">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="mybutton">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

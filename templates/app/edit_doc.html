@@ -1,0 +1,91 @@
+{% extends 'base2.html' %}
+{% block body %}
+<div class="container my-4 bg pb-5">
+  <div class="row justify-content-center ">
+    <div class="col-md-10 mx-auto">
+      <div class="card" style="border: none">
+        <div class="card-body card_back">
+          <h2>DOCUMENTS</h2>
+          <form action="{% url 'update_doc' docs.id %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <div class="inputwrapper">
+                  <label for="truckno" class="newline">Truck No.</label>
+                  <input type="text" name="truckno" id="truckno" value ="{{docs.truckno}}" placeholder="XX-00-XX-00">
+                </div>
+              </div>
+              </div>
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <div class="inputwrapper">
+                  <label for="puc-date" class="newline">POLLUTION UNDER CONTROL CERTIFICATE (PUCC)</label>
+                  {% comment %} <input type="date" name="puc_date" id="puc-date"> {% endcomment %}
+                  <input type="file" name="puc" value ="{{docs.puc.url}}" id="puc">
+                </div>
+              </div>         
+              <div class="col-sm-6">
+                <div class="inputwrapper">
+                  <label for="insurance-date" class="newline">INSURANCE</label>
+                  {% comment %} <input type="date" name="insurance_date" id="insurance-date"> {% endcomment %}
+                  <input type="file" name="insurance" id="insurance">
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <div class="inputwrapper">
+                  <label for="rc-date" class="newline">REGISTRATION CERTIFICATE</label>
+                  {% comment %} <input type="date" name="rc-date" id="rc-date"> {% endcomment %}
+                  <input type="file" name="rc" id="rc">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="inputwrapper">
+                  <label for="india-permit-date" class="newline">ALL INDIA PERMIT</label>
+                  {% comment %} <input type="date" name="india-permit-date" id="india-permit-date"> {% endcomment %}
+                  <input type="file" name="india_permit" id="india-permit">
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <div class="inputwrapper">
+                  <label for="state-permit-date" class="newline">STATE PERMIT</label>
+                  {% comment %} <input type="date" name="state-permit-date" id="state-permit-date"> {% endcomment %}
+                  <input type="file" name="state_permit" id="state-permit">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="inputwrapper">
+                  <label for="fitness-date" class="newline">FITNESS</label>
+                  {% comment %} <input type="date" name="fitness-date" id="fitness-date"> {% endcomment %}
+                  <input type="file" name="fitness" id="fitness">
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <div class="inputwrapper">
+                  <label for="decleration-date" class="newline">DECLERATION</label>
+                  {% comment %} <input type="date" name="decleration-date" id="decleration-date"> {% endcomment %}
+                  <input type="file" name="decleration" id="decleration">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="inputwrapper">
+                  <label for="danda-date" class="newline">DUPLICATE CARBON RECEIPT BOOK(DANDA TAX WEST-BENGAL)</label>
+                  {% comment %} <input type="date" name="danda-date" id="danda-date"> {% endcomment %}
+                  <input type="file" name="danda" id="danda">
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="mybutton">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

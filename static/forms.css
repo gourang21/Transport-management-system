@@ -1,0 +1,50 @@
+
+.forms a {
+    text-decoration: none;
+    color: #EAEDF3;
+    font-size: 1.25rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.forms h1{
+    color: #000;
+    margin-bottom: 0;
+}
+
+.inputwrapper {
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+
+.newline {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type=text], input[type=number], input[type=date], select, textarea, input[type=file] {
+    padding: 12px 20px; 
+    width: 100%;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 0.85rem;
+    box-sizing: border-box;
+}
+
+
+.mybutton {
+    background-color: #92CF48;
+    text-decoration: none;
+    padding: 9px 20px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 20px;
+    border: none;
+    border-radius: 25px;
+} 
+
+.card_back{
+    background-color:#f9f9fa;
+}
+
+.width{
+width: 150%;
+}

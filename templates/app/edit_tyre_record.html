@@ -1,0 +1,87 @@
+{% extends 'base2.html' %}
+{% block body %}
+<div class="container my-4 bg pb-5">
+  <div class="row justify-content-center ">
+    <div class="col-md-10 mx-auto">
+      <div class="card" style="border: none">
+        <div class="card-body card_back">
+          <h2>TYRE RECORD</h2>
+          <form action="{% url 'tyre_record_update' tyre.id %}" method="post">
+            {% csrf_token %}
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <div class="inputwrapper">
+                  <label for="truckno" class="newline">Truck No.</label>
+                  <input type="text" name="truckno" id="truckno" value="{{tyre.truckno}}" placeholder="XX=00-XX-00">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="inputwrapper">
+                  <label for="tyre-date" class="newline">DATE</label>
+                  <input type="date" value="{{tyre.tyre_date|date:"Y-m-d" }}" name="tyre_date" id="tyre-date">
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <div class="inputwrapper">
+                  <label for="tyre-brand" class="newline">BRAND NAME</label>
+                  <input type="text" name="tyre_brand" id="tyre-brand" value="{{tyre.tyre_brand}}" placeholder="BRAND">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="inputwrapper">
+                  <label for="tyre-model" class="newline">MODEL NO.</label>
+                  <input type="text" name="tyre_model" id="tyre_model" value="{{tyre.tyre_model}}" placeholder="Model">
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <div class="inputwrapper">
+                  <label for="tyre-number" class="newline">TYRE NUMBER</label>
+                  <input type="text" name="tyre_number" id="tyre-number" value={{tyre.tyre_number}}
+                    placeholder="TYRE N0.">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="inputwrapper">
+                  <label for="tyre-price" class="newline">TYRE PRICE</label>
+                  <input type="text" name="tyre_price" id="tyre-price" value={{tyre.tyre_price}} placeholder="PRICE">
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <div class="inputwrapper">
+                  <label for="km-reading" class="newline">KILOMETERS READING</label>
+                  <input type="text" name="km_reading" id="km-reading" value={{tyre.km_reading}} placeholder="KM">
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="inputwrapper">
+                  <label for="tyre-status" class="newline">STATUS</label>
+                  <input type="text" name="tyre_status" id="tyre-status" value={{tyre.tyre_status}}>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-sm-6">
+                <div class="inputwrapper">
+                  <label for="tyre-description" class="newline">DESCRIPTION</label>
+                  <input type="text" name="tyre_description" id="tyre-description" value={{tyre.tyre_description}}
+                    placeholder="NOTE">
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="mybutton">Submit</button>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+{% endblock body %}

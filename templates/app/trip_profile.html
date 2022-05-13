@@ -1,0 +1,141 @@
+{% extends 'base2.html' %}
+{% block body %}
+<div class="container my-4 bg pb-5">
+  <div class="row justify-content-center ">
+    <div class="col-md-10 mx-auto">
+      <div class="card" style="border: none">
+        <div class="card-body card_back">
+                    <h2>TRIP PROFILE</h2>
+                    <form action="{%url 'trip_submit' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="truckno" class="newline">Truck No.</label>
+                                    <input type="text" name="truckno" id="truckno" placeholder="XX-00-XX-00">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="company-name" class="newline">COMPANY NAME</label>
+                                    <input type="text" name="company_name" id="company_name" placeholder="COMPANY">
+                                </div> 
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="pickup" class="newline">PICK UP LOACTION</label>
+                                    <input type="text" name="pickup" id="pickup" placeholder="ADDRESS">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="inputwrapper destination">
+                                    <label for="destination" class="newline">DESTINATION</label>
+                                    <input class="input" class="input" type="text" name="destination" id="destination" placeholder="ADDRESS" >
+                                    <button class="add_field_button mybutton1" >Add More Fields</button>
+                                    <button class="remove_field_button mybutton1" >delete More Fields</button>
+                                </div>
+                            </div>
+                        </div>
+                         <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="inputwrapper delivery-date">
+                                  <label for="delivery-date" class="newline">DELIVERY DATE</label>
+                                    <input class="input" min='1999-01-01' max='2525-12-31' type="date" name="delivery_date" id="delivery-date"> 
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="inputwrapper good-type">
+                                 
+                                     <label for="good-type" class="newline">GOOD'S TYPE</label>
+                                    <input class="input" type="text" name="good_type" id="good-type" placeholder="TYPE OF GOOD">
+                                </div>
+                            </div>
+                        </div>
+                    <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="inputwrapper weight">
+                                <label for="weight" class="newline">WEIGHT</label>
+                                    <input class="input" type="text" name="weight" id="weight" placeholder="WEIGHT OF GOOD">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="inputwrapper rate">
+                                    <label for="rate" class="newline">RATE</label>
+                                    <input class="input" type="text" name="rate" id="rate" placeholder="RATE">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                <label for="diesel" class="newline">DIESEL CONSUMPTION PER CONSIGNMENT</label>
+                                <input type="text" name="diesel" id="diesel" placeholder="Liters">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="trip-kilometers" class="newline">ROLLING KILOMETERS</label>
+                                    <input type="text" name="trip_kilometers" id="trip_kilometers" placeholder="KILOMETERS">
+                                </div>
+                            </div>
+                        </div>
+                         <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                <label for="trip-expenses" class="newline">ALL EXPENSES PER CONSIGNMENT</label>
+                                <input type="text" name="trip_expenses" id="trip-expenses" placeholder="EXPENSES">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="toll-tax" class="newline">TOLL TAX</label>
+                                    <input type="text" name="toll_tax" id="toll_tax" placeholder="\Rs.">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                <label for="fair" class="newline">FAIR</label>
+                                <input type="text" name="fair" id="fair" placeholder="BHADA">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                     <label for="balance" class="newline">BALANCE AMOUNT</label>
+                                    <input type="text" name="balance" id="balance" placeholder="AMOUNT">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="unloading-amount" class="newline">UNLOADING AMOUNT</label>
+                                    <input type="text" name="unloading_amount" id="unloading_amount" placeholder="UNLOADING">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                   <label for="balance-collected" class="newline">BALANCE COLLECTED</label>
+                                    <input type="text" name="balance_collected" id="balance_collected" placeholder="\Rs">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-6">
+                                <div class="inputwrapper">
+                                    <label for="unloading-description" class="newline">DESCRIPTION</label>
+                                    <input type="text" name="unloading_description" id="unloading_description" placeholder="NOTE">
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="mybutton">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock body %}

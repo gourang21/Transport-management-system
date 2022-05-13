@@ -1,0 +1,40 @@
+{% extends 'base2.html' %}
+{% block body %}
+<div class="container my-4 bg pb-5">
+  <div class="row justify-content-center ">
+    <div class="col-md-6 mx-auto">
+      <div class="card" style="border: none">
+        <div class="card-body card_back">
+          <h2>CASHBOOK</h2>
+            <form action="/cashbook_submit/" method="post">
+                  {% csrf_token %}
+                <div class="inputwrapper">
+                    <label for="cashbook-date" class="newline">DATE</label>
+                    <input type="date" min='1999-01-01' max='2525-12-31' name="cashbook_date" id="cashbook-date" placeholder="yyyy-mm-dd">
+                </div>
+
+                <div class="inputwrapper">
+                    <label for="particular" class="newline">PARTICULAR</label>
+                    <input type="text" name="particular" id="particular" placeholder="description">
+                </div>
+                <div class="inputwrapper">
+                    <label for="cashbook_amount" class="newline">AMOUNT</label>
+                    <input type="text" name="cashbook_amount" id="cashbook_amount" placeholder="AMOUNT">
+                </div>
+                <div class="inputwrapper">
+                    <label for="transection_type" class="newline">TRANSECTION TYPE</label>
+                    <select name="transection_type" id="transection_type">
+                        <option value="not-selected">CREDIT/DEBIT</option>
+                        <option value="CREDIT">CREDIT</option>
+                        <option value="DEBIT">DEBIT</option>
+                    </select>
+                </div>
+                <button type="submit" class="mybutton">Submit</button>
+            </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock body %}

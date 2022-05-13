@@ -1,0 +1,161 @@
+/* purplelight #302D43
+purpledark #282639
+neongreen #92CF48
+lightgrey #F4F6F9
+darkgrey #EAEDF3  */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #F4F6F9;
+} 
+.nav-item{
+    float: left;
+}
+
+section{
+    background-color: #343a40;
+    background-size: cover;
+    width: 280px;
+    height:1180px;
+    position:fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+   float: left;
+}
+
+
+.nav_side a {
+    text-decoration: none;
+    color: #EAEDF3;
+    display: block;
+    padding: 10px 30px;
+    font-weight: 300;
+    transition: all 0.3s ease-in-out;
+ 
+}
+
+.nav_side a:hover {
+    text-decoration: none;
+    color: #EAEDF3;
+    background-color: #282639;
+    border-left: 5px solid #92CF48;
+    padding: 15px 30px 15px 25px;
+    
+}
+
+.navbutton a:hover {
+    text-decoration: none;
+    color: #EAEDF3;
+    background-color: #282639;
+    border-left: 5px solid #92CF48;
+    padding: 15px 30px 15px 25px;
+    
+}
+
+.nav_side {
+     padding-top: 12.5px;
+}
+
+.active {
+    background-color: #282639;
+    border-left: 5px solid #92CF48;
+    padding: 15px 30px 15px 25px;
+}
+
+.fa {
+    color:#92CF48;
+    font-size: 1.4rem;
+    margin-right: 0.8rem;
+    display: inline-block;
+    width: 30px;
+    position: relative;
+    top: 2px;
+}
+
+.fa-caret-down {
+    color:#92CF48;
+    font-size: 1.4rem;
+    margin-left: 15px;
+    display: inline-block;
+    width: 30px;
+    position: relative;
+    top: 2px;
+    
+}
+
+h1 {
+    color: #EAEDF3;
+    font-size: x-large;
+    padding: 50px 10px;
+    text-align: center;
+}
+
+
+
+.drop{
+    
+    position: relative;
+    z-index: 1;
+    padding: 10px 30px;
+    font-weight: 300;
+    transition: all 0.3s ease-in-out;
+    
+} 
+
+
+
+.drop .navbutton {
+    width: 250px;
+    
+    
+}
+
+.drop .navbutton a{
+    color: #EAEDF3;
+    
+}
+
+.alert-dismissible{
+   margin-left: 280px;
+}
+.navbar{
+    margin-left: 280px;
+}
+.navbar-custom{
+    
+    background-color: #343a40;
+}
+.sidemenu_head a {
+    display: block;
+    margin-top: 8px;
+    font-size: 25px;
+    text-align: center;
+    color: white;
+    /* text-decoration: none; */
+}
+#GFG { 
+    text-decoration: none; 
+} 
+.sidemenu_head a:hover {
+    color:white;
+  }
+
+.mybutton1{
+text-transform: none;
+margin-top: 10px;
+margin-bottom: 8px;
+border-radius: 30px;
+background-color: #92CF48;
+padding: 3px 8px;
+color: #ffffff;
+border:none;
+
+}
+.mybutton:focus{
+    outline: none;
+}
+.mybutton1:focus{outline: none; }
+.input{
+    margin-bottom: 10px;
+}

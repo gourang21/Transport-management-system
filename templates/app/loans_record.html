@@ -1,0 +1,78 @@
+{% extends 'base2.html' %}
+{% block body %}
+<style>
+.mybuttonemi{
+    background-color: grey;
+    padding: 3px 10px;
+    text-decoration: none;
+    margin-bottom: 15px;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    border-radius: 20px;
+  }
+  .mybuttonemi:focus{outline:none;}
+  </style>
+<div class="container my-4 bg pb-5">
+    <div class="row justify-content-center ">
+        <div class="col-md-6 mx-auto">
+            <div class="card" style="border: none">
+                <div class="card-body card_back">
+                    <h2>LOANS RECORD</h2>
+                    <form action="/loans_record_submit/" method="POST">
+                    {% csrf_token %}
+                        <div class="inputwrapper">
+                            <label for="truckno" class="newline">Truck No.</label>
+                            <input type="text" name="truckno" id="truckno" placeholder="XX-00-XX-00">
+                        </div>
+                        <div class="inputwrapper">
+                            <label for="owner-name" class="newline">OWNER'S NAME</label>
+                            <input type="text" name="owner_name" id="owner-name" placeholder="NAME">
+                        </div>
+                        <div class="inputwrapper">
+                            <label for="loan-ammount" class="newline">LOAN AMOUNT</label>
+                            <input type="number" name="loan_amount" id="loan_amount" placeholder="AMOUNT">
+                        </div>
+                        <div class="inputwrapper">
+                            <label for="interest-rate" class="newline">INTEREST RATE</label>
+                            <input type="number" step=any name="interest_rate" id="interest_rate" placeholder="INTEREST">
+                        </div>
+                        <div class="inputwrapper">
+                            <label for="loan-duration" class="newline">LOAN DURATION</label>
+                            <input type="number" name="loan_duration" id="loan_duration" placeholder="YEARS">
+                        </div>
+                        <div class="inputwrapper">
+                            {% comment %} <label for="installment-amount" class="newline">INSTALLMENT AMOUNT</label> {% endcomment %}
+                            <button type="button" class="mybuttonemi" onclick="cal()" name="installment_amount" id="installment_amount">Installment amount</button>
+                            <label id="result"> </label>
+                        </div>
+                        <div class="inputwrapper">
+                            <label for="installment-date" class="newline">INSTALLMENT DATE</label>
+                            <input type="date" name="installment_date" id="installment_date">
+                        </div>
+                        <div class="inputwrapper">
+                            <label for="months" class="newline">NO. OF INSTALLMENTS PAID(if any)</label>
+                            <input type="number"min=0 name="month_paid" id="month_paid" value=0 placeholder="INSTALLMENTS PAID">
+                        </div>
+                        <button type="submit" class="mybutton">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script>
+function cal(){
+    p=document.getElementById("loan_amount").value;
+    r=document.getElementById("interest_rate").value; 
+    t=document.getElementById("loan_duration").value; 
+    result=document.getElementById("result");
+    var b=eval("(p*r*t)/100")
+    var c=eval("parseFloat(p)+b")
+   //result.innerHTML=((loan_amount+((loan_amount*interest_rate*loan_duration)/100))/(12))
+
+    //result.innerHTML =parseFloat(p)+parseFloat((p*r*t)/100);
+    result.innerHTML=Number((parseFloat(c)/(t*12)).toFixed(2));
+    }
+</script>
+{% endblock body %}
